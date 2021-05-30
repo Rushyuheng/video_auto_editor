@@ -44,6 +44,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 	def choose_icon_onClick(self):
 		self.icon_filename,_ = QFileDialog.getOpenFileName(self,"open file","./","image file:(*.png *.jpg *.jpeg)")
 		if not self.icon_filename:
+			self.icon_filename = ""
 			self.icon_path.setText("尚未選擇檔案")
 		else:
 			self.icon_path.setText(self.icon_filename)
