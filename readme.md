@@ -5,7 +5,7 @@
 ###### tags: side_project
 
 ## Window 10 executable
-[google drive link](https://drive.google.com/file/d/13UKMS-PCkZP-Kch4iRm0CNrDquCjXBQ2/view?usp=sharing)
+[google drive link(chinese UI only)](https://drive.google.com/file/d/13UKMS-PCkZP-Kch4iRm0CNrDquCjXBQ2/view?usp=sharing)
 ## Mac/linux
 * python 3.7up
 * setuptool
