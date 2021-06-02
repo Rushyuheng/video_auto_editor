@@ -100,7 +100,7 @@ Command line will appear(black box)after running main.exe,please wait 3-5 sec fo
 ![](https://i.imgur.com/Ybbr9GH.png)
 This block is for configurating raw footage,user should
 1. browse and choose raw footage file
-2. set the starting time and ending time to remove redundant part in raw footage 
+2. set the starting time and ending time to remove redundant part in raw footage   
 :::warning
 3 sec fade in, fade out effect will be applied to the raw footage, so make sure to keep some spare time during time setting
 :::
@@ -131,7 +131,7 @@ use orginal title animation without transparant backgoround and don't apply filt
 This block is for configurating Icon,user should
 1. browse and choose icon file
 2. set icon position
-3. set icon size
+3. set icon size  
 :::warning
 If user did not choose any icon file, default will use the frame in the middle of animation as icon. PNG is recommended icon file type.
 :::
