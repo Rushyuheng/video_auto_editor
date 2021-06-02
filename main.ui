@@ -293,7 +293,7 @@
     <item>
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
-       <string>Title animate option</string>
+       <string>Title animation option</string>
       </property>
       <widget class="QPushButton" name="choose_animate">
        <property name="geometry">
