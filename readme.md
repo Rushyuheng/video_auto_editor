@@ -5,7 +5,7 @@
 ###### tags: side_project
 
 ## Window 10 executable
-[google drive link](https://drive.google.com/file/d/13UKMS-PCkZP-Kch4iRm0CNrDquCjXBQ2/view?usp=sharing)
+[google drive link(TW)](https://drive.google.com/file/d/13UKMS-PCkZP-Kch4iRm0CNrDquCjXBQ2/view?usp=sharing)
 ## Mac/linux
 * python 3.7up
 * setuptool
@@ -79,7 +79,7 @@ python ./main.py
 * 若前三部分設定有錯誤可以清除表格後重新新增
 * 表格內可以雙擊編輯，但請保持內容格式正確，否則可能出現錯誤
 * 當清單全數增加完畢後選擇輸出影片
-* 輸出影片後命令提示字元(黑色框框)可以看到個影片的輸出進度
+* 輸出影片後命令提示字元(黑色框框)可以看到各別影片的輸出進度
 * 文字狀態也會顯使目前處理了幾支影片
 ## release note
 ### customer needs V1
