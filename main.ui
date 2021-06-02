@@ -323,7 +323,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Title animate file</string>
+        <string>Title animation file</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -396,7 +396,7 @@
         </font>
        </property>
        <property name="text">
-        <string>(use title animate as ICON if no ICON file selected)</string>
+        <string>(use title animation as ICON if no ICON file selected)</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
