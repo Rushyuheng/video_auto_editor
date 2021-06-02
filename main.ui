@@ -172,7 +172,7 @@
         <string>0</string>
        </property>
        <property name="placeholderText">
-        <string>0</string>
+        <string/>
        </property>
       </widget>
       <widget class="QLineEdit" name="end_sec">
@@ -666,7 +666,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Add to queue</string>
+        <string>add to queue</string>
        </property>
       </widget>
       <widget class="QTableWidget" name="processqueue">
