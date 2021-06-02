@@ -1,4 +1,4 @@
-# Auto video editing(TW)
+# Auto video editing
 
 [![hackmd-github-sync-badge](https://hackmd.io/saOjw3InQrqCEsWNNmg7cA/badge)](https://hackmd.io/saOjw3InQrqCEsWNNmg7cA)
 
@@ -25,7 +25,7 @@ execute main.py
 python ./main.py
 ```
 ## How to use (TW)
-### Introduction
+### 簡介
 範例效果：[youtube](https://youtu.be/joYtSd551gg)  
 剪輯師：夏多  
 
@@ -33,7 +33,7 @@ python ./main.py
 主要的功能是能一次排程幫複數支影片加上片頭動畫、ICON、以及基本的片頭片尾淡出，以下說明如何使用這個工具以及各項客製化選項。  
 
 執行起main.exe後會跳出黑色命令提示字元是正常現象，請等待3-5秒操作介面會接著跳出來。
-### Source video option
+### 毛片設定
 ![](https://i.imgur.com/qMSroOd.png)
 此區是影片毛片的設定區塊
 1. 瀏覽檔案並讀入路徑
@@ -42,7 +42,7 @@ python ./main.py
 影片開頭和結尾都有3秒的淡入淡出，建議設定時間時可以預留幾秒作為淡入淡出
 :::
 
-### Animate option
+### 片頭動畫設定
 ![](https://i.imgur.com/wmQVBwK.png)
 此區是開頭動畫的設定區塊
 1. 瀏覽檔案並讀入路徑
@@ -61,7 +61,7 @@ python ./main.py
 #### 片頭動畫不需去背：
 直接使用不透明片頭動畫，不必勾選「去除動畫黑色背景」
 
-### Icon option
+### Icon設定
 ![](https://i.imgur.com/aMvdIDg.png)
 此區設定範例影片中左下角的圖標
 1. 瀏覽檔案並讀入路徑
@@ -71,18 +71,85 @@ python ./main.py
 若不讀入ICON路徑，預設使用片頭動畫時間點中間的影格作為片頭，會受前點片頭是否有去背影響，建議使用有透明度資訊的PNG作為ICON
 :::
 
-### Output option
+### 輸出設定
 ![](https://i.imgur.com/hyjUhdn.png)
 此區設定排程複數影片及輸出
-* 當設定好前三部分後點擊新增到處理清單
+* 當設定好前三部分後點擊「新增到處理清單」
 * 右邊表格可以查看待處理影片的所有設定值
 * 若前三部分設定有錯誤可以清除表格後重新新增
 * 表格內可以雙擊編輯，但請保持內容格式正確，否則可能出現錯誤
-* 當清單全數增加完畢後選擇輸出影片
+* 當清單全數增加完畢後選擇「輸出影片」
 * 輸出影片後命令提示字元(黑色框框)可以看到各別影片的輸出進度
 * 文字狀態也會顯使目前處理了幾支影片
+
+## How to use (EN)
+### Introduction
+final goal video：[youtube](https://youtu.be/joYtSd551gg)  
+video editor：SiaDou  
+
+**Please switch to branch with EN in their name to get english GUI file**
+
+This tools origninally aimed to help NCKU fire dance club video editor automate the whole proceess that the editor needs to do after he filmed fire dance raw footages before uploading to Youtube.  
+It is strongly recommended to watch the final goal video above, you have a clear map about what this tool is going to do.   
+He usually film 3-10 footages in one show, after that he need to add title animation (fire effect) and icon (fire on bottom left) to each footages separately with video editing software, which is a tedious and repetitive process.  
+
+The main feature of this tool is it can schedule to process mutilple footages. It automatically add title animation, icon to each footages and basic fade in fade out effects, convinenent to those editors who simply want to add title animation and icon to multiple footages.  
+
+Command line will appear(black box)after running main.exe,please wait 3-5 sec for the GUI to show up.
+### Raw footage configuration
+![](https://i.imgur.com/Ybbr9GH.png)
+This block is for configurating raw footage,user should
+1. browse and choose raw footage file
+2. set the starting time and ending time to remove redundant part in raw footage 
+:::warning
+3 sec fade in, fade out effect will be applied to the raw footage, so make sure to keep some spare time during time setting
+:::
+
+### Animation configuration
+![](https://i.imgur.com/2kdbJm1.png)
+
+This block is for configurating title animation,user should
+1. browse and choose title animation file
+2. set to use black background filter or not
+#### black background filter：
+making title animation effect often use black bacckground,like figure below  
+final goal video hope to overlay animation on the first frame of the video, so I offer a fast option to filter out black background    
+![](https://i.imgur.com/lgP4kOi.png =320x)  
+#### overlay title animation like the final goal video：
+* one way is make their animation with black background and apply the filter  
+(caution: your animation should not use black pixel in other place except background, filter will remove it)
+* the other way is make your animation with transparant backgoround and don't apply filter  
+:::warning
+animation will overlay on the starting time frame set by previous block
+:::
+#### title video or animation fully cover the screen：
+use orginal title animation without transparant backgoround and don't apply filter
+
+### Icon configuration
+![](https://i.imgur.com/LqvUxJc.png)
+
+This block is for configurating Icon,user should
+1. browse and choose icon file
+2. set icon position
+3. set icon size
+:::warning
+If user did not choose any icon file, default will use the frame in the middle of animation as icon. PNG is recommended icon file type.
+:::
+
+### Output configuration
+![](https://i.imgur.com/NCi8CVC.png)
+This block is for scheduling and output mutiple video,user should
+* set all configurations in pervious three blocks and click "add to queue"
+* table on the right can see all the configurations of each raw footages
+* If there're any misconfigurations, you can clear all table and reset again
+* you can edit configuration by double clicking the cells in the table  
+(caution: keep the format in each cells as it was when editing, otherwise some error may occur)
+* click "process all video" after checking all configurations are correct 
+* command line will show single video process progess
+* status text will also show which video is processing now 
+
 ## release note
-### customer needs V1
+### editor's request V1
 * load video
 * remove redundant head and tail
 * freeze title and add animate
