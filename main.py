@@ -30,13 +30,13 @@ class MainUi(QMainWindow, Ui_MainWindow):
 		self.show_filename = ""
 		self.icon_filename = ""
 		self.enable_blackfilter = True
-		self.icon_pos = "左下"
+		self.icon_pos = "buttom left"
 
 	@pyqtSlot()
 	def choose_show_onClick(self):
 		self.show_filename,_ = QFileDialog.getOpenFileName(self,"open file","./","vidoe file:(*.wmv *.mp4 *.m4v)")
 		if not self.show_filename:
-			self.show_path.setText("尚未選擇檔案")
+			self.show_path.setText("no file selected")
 		else:
 			self.show_path.setText(self.show_filename)
 
@@ -44,7 +44,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 	def choose_animate_onClick(self):
 		self.animate_filename,_ = QFileDialog.getOpenFileName(self,"open file","./","vidoe file:(*.wmv *.mp4 *.m4v)")
 		if not self.animate_filename:
-			self.animate_path.setText("尚未選擇檔案")
+			self.animate_path.setText("no file selected")
 		else:
 			self.animate_path.setText(self.animate_filename)
 
@@ -53,7 +53,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 		self.icon_filename,_ = QFileDialog.getOpenFileName(self,"open file","./","image file:(*.png *.jpg *.jpeg)")
 		if not self.icon_filename:
 			self.icon_filename = ""
-			self.icon_path.setText("尚未選擇檔案")
+			self.icon_path.setText("no file selected")
 		else:
 			self.icon_path.setText(self.icon_filename)
 
@@ -84,13 +84,13 @@ class MainUi(QMainWindow, Ui_MainWindow):
 
 
 		if not (start_min and start_sec and end_min and end_sec):
-			self.status.setText("錯誤：未設定時間")
+			self.status.setText("error：please set video time")
 		elif not (icon_width and icon_height):
-			self.status.setText("錯誤：未設定ICON尺寸")
+			self.status.setText("error：please set icon size")
 		elif not self.show_filename:
-			self.status.setText("錯誤：未選擇表演影片")
+			self.status.setText("error：please choose raw footage")
 		elif not self.animate_filename:
-			self.status.setText("錯誤：未選擇片頭動畫")
+			self.status.setText("error：please choose title animate")
 		else:
 			rowPosition = self.processqueue.rowCount()
 			self.processqueue.insertRow(rowPosition)
@@ -102,14 +102,14 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			self.processqueue.setItem(rowPosition , 5, QTableWidgetItem(self.icon_filename))
 			self.processqueue.setItem(rowPosition , 6, QTableWidgetItem(self.icon_pos))
 			self.processqueue.setItem(rowPosition , 7, QTableWidgetItem(icon_size))
-			self.status.setText("成功加入影片處理清單")
+			self.status.setText("successfully add to queue")
 
 	@pyqtSlot()
 	def clear_table_onClick(self):
 		rowlength = self.processqueue.rowCount()
 		for index in range(0,rowlength):
 			self.processqueue.removeRow(0)
-		self.status.setText("已清除影片處理清單")
+		self.status.setText("clear all queue")
 
 	@pyqtSlot()
 	def write_video_onClick(self):
@@ -135,11 +135,11 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			icon_filename = str(self.processqueue.item(index,5).text())
 			
 			icon_pos = str(self.processqueue.item(index,6).text())
-			if icon_pos == "右下":
+			if icon_pos == "bottom right":
 				icon_pos = ("right","bottom")
-			elif icon_pos == "右上":
+			elif icon_pos == "top right":
 				icon_pos = ("right","top")
-			elif icon_pos == "左上":
+			elif icon_pos == "top left":
 				icon_pos = ("left","top")
 			else:
 				icon_pos = ("left","bottom")
@@ -147,10 +147,10 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			icon_size = str(self.processqueue.item(index,7).text()).split("X")
 			icon_size = (int(icon_size[0]),int(icon_size[1])) # API resize (width,height)
 
-			self.status.setText("輸出影片中...({0}/{1})".format(index + 1,rowlength))
+			self.status.setText("writing video...({0}/{1})".format(index + 1,rowlength))
 			self.status.repaint()
 			autoedit.writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size)
-		self.status.setText("已輸出所有影片")
+		self.status.setText("successfully output all video")
 
 if __name__ == "__main__": #main function
 	def run_app():
