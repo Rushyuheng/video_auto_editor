@@ -609,7 +609,7 @@
         </font>
        </property>
        <property name="text">
-        <string>使用片頭中點影格作為ICON</string>
+        <string>自動使用片頭中點影格作為ICON</string>
        </property>
        <property name="checked">
         <bool>true</bool>
