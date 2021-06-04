@@ -2,8 +2,13 @@ from re import split
 from moviepy.editor import VideoFileClip,CompositeVideoClip,ImageClip,concatenate_videoclips
 from moviepy.video.fx.all import mask_color,fadeout
 from moviepy.audio.fx.all import audio_fadein,audio_fadeout
+def getvideolength(filename):
+    video = VideoFileClip(filename)
+    min = int(int(video.duration) / 60)
+    sec = int(video.duration) % 60
+    return min,sec
 
-def writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size):
+def writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,genicon):
     # load video source
     fire = VideoFileClip(animate_filename)
     if enable_blackfilter:
@@ -19,21 +24,21 @@ def writevideo(index,show_filename,start_time,end_time,animate_filename,enable_b
 
     #fade in audio
     show = audio_fadein(show,5)
-
-    # use icon img or middle frame of animate
-    if icon_filename:
-        icon = ImageClip(icon_filename).set_duration(show.duration - 3)
-    else:
-        icon = masked_fire.to_ImageClip(t= fire.duration / 2, with_mask=True, duration= show.duration - 3)
-    #add icon to corner
-
-    icon = icon.crossfadein(3)
-    icon = icon.crossfadeout(3)
-    icon = icon.resize(icon_size)
-    show_with_icon = CompositeVideoClip([show,icon.set_position(icon_pos)], use_bgclip=False)
+    
+    if icon_filename or genicon:
+        # use icon img or middle frame of animate
+        if icon_filename:
+            icon = ImageClip(icon_filename).set_duration(show.duration - 3)
+        elif genicon:
+            icon = masked_fire.to_ImageClip(t= fire.duration / 2, with_mask=True, duration= show.duration - 3)
+        #add icon to corner
+        icon = icon.crossfadein(3)
+        icon = icon.crossfadeout(3)
+        icon = icon.resize(icon_size)
+        show = CompositeVideoClip([show,icon.set_position(icon_pos)], use_bgclip=False)
 
     #final concat
-    final_clip = concatenate_videoclips([title,show_with_icon])
+    final_clip = concatenate_videoclips([title,show])
 
     #final fadeout
     final_clip = audio_fadeout(final_clip,5)

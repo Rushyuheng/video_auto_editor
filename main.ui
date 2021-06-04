@@ -26,7 +26,7 @@
     <item>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="title">
-       <string>表演影片設定</string>
+       <string>毛片設定</string>
       </property>
       <widget class="QLineEdit" name="start_sec">
        <property name="geometry">
@@ -381,27 +381,6 @@
       <property name="title">
        <string>ICON設定</string>
       </property>
-      <widget class="QLabel" name="label_9">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>150</y>
-         <width>280</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>(不選擇ICON將自動使用片頭作為ICON)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
       <widget class="QPushButton" name="choose_icon">
        <property name="geometry">
         <rect>
@@ -461,7 +440,7 @@
        <property name="geometry">
         <rect>
          <x>710</x>
-         <y>40</y>
+         <y>80</y>
          <width>150</width>
          <height>30</height>
         </rect>
@@ -493,8 +472,8 @@
       <widget class="QLabel" name="label_12">
        <property name="geometry">
         <rect>
-         <x>490</x>
-         <y>40</y>
+         <x>470</x>
+         <y>80</y>
          <width>200</width>
          <height>30</height>
         </rect>
@@ -518,7 +497,7 @@
        <property name="geometry">
         <rect>
          <x>490</x>
-         <y>110</y>
+         <y>150</y>
          <width>200</width>
          <height>30</height>
         </rect>
@@ -542,7 +521,7 @@
        <property name="geometry">
         <rect>
          <x>710</x>
-         <y>110</y>
+         <y>150</y>
          <width>61</width>
          <height>31</height>
         </rect>
@@ -558,7 +537,7 @@
        <property name="geometry">
         <rect>
          <x>870</x>
-         <y>110</y>
+         <y>150</y>
          <width>150</width>
          <height>30</height>
         </rect>
@@ -582,7 +561,7 @@
        <property name="geometry">
         <rect>
          <x>840</x>
-         <y>110</y>
+         <y>150</y>
          <width>61</width>
          <height>31</height>
         </rect>
@@ -598,7 +577,7 @@
        <property name="geometry">
         <rect>
          <x>780</x>
-         <y>110</y>
+         <y>150</y>
          <width>40</width>
          <height>30</height>
         </rect>
@@ -613,6 +592,30 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="generate_icon_checkbox">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>20</y>
+         <width>341</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>使用片頭中點影格作為ICON</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
        </property>
       </widget>
      </widget>
@@ -716,6 +719,11 @@
        <column>
         <property name="text">
          <string>icon_size</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>autogen_icon</string>
         </property>
        </column>
       </widget>

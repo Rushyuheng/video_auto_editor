@@ -21,6 +21,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 		self.choose_icon.clicked.connect(self.choose_icon_onClick)
 		self.blackfilter_checkbox.clicked.connect(self.blackfilter_checkboxChangedAction)
 		self.icon_pos_combobox.activated.connect(self.icon_pos_comboboxActivate)
+		self.generate_icon_checkbox.clicked.connect(self.generate_icon_checkboxChangedAction)
 		self.add_queue.clicked.connect(self.add_queue_onClick)
 		self.clear_table.clicked.connect(self.clear_table_onClick)
 		self.write_video.clicked.connect(self.write_video_onClick)
@@ -30,6 +31,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 		self.show_filename = ""
 		self.icon_filename = ""
 		self.enable_blackfilter = True
+		self.enable_genicon = True
 		self.icon_pos = "左下"
 
 	@pyqtSlot()
@@ -37,8 +39,17 @@ class MainUi(QMainWindow, Ui_MainWindow):
 		self.show_filename,_ = QFileDialog.getOpenFileName(self,"open file","./","vidoe file:(*.wmv *.mp4 *.m4v)")
 		if not self.show_filename:
 			self.show_path.setText("尚未選擇檔案")
+			self.start_min.setText("0")
+			self.start_sec.setText("0")	
+			self.end_min.setText("0")
+			self.end_sec.setText("0")
 		else:
 			self.show_path.setText(self.show_filename)
+			self.start_min.setText("0")
+			self.start_sec.setText("0")	
+			min,sec = autoedit.getvideolength(self.show_filename)
+			self.end_min.setText(str(min))
+			self.end_sec.setText(str(sec))
 
 	@pyqtSlot()
 	def choose_animate_onClick(self):
@@ -67,6 +78,13 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			self.enable_blackfilter = True
 		else:
 			self.enable_blackfilter = False
+
+	@pyqtSlot()
+	def generate_icon_checkboxChangedAction(self):
+		if self.generate_icon_checkbox.isChecked():
+			self.enable_genicon = True
+		else:
+			self.enable_genicon = False
 
 	@pyqtSlot()
 	def add_queue_onClick(self):
@@ -102,6 +120,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			self.processqueue.setItem(rowPosition , 5, QTableWidgetItem(self.icon_filename))
 			self.processqueue.setItem(rowPosition , 6, QTableWidgetItem(self.icon_pos))
 			self.processqueue.setItem(rowPosition , 7, QTableWidgetItem(icon_size))
+			self.processqueue.setItem(rowPosition , 8, QTableWidgetItem(str(self.enable_genicon)))
 			self.status.setText("成功加入影片處理清單")
 
 	@pyqtSlot()
@@ -147,9 +166,15 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			icon_size = str(self.processqueue.item(index,7).text()).split("X")
 			icon_size = (int(icon_size[0]),int(icon_size[1])) # API resize (width,height)
 
+			enable_genicon = str(self.processqueue.item(index,8).text())
+			if enable_genicon == "False":
+				enable_genicon = False # cast to bool
+			else:
+				enable_genicon = True
+
 			self.status.setText("輸出影片中...({0}/{1})".format(index + 1,rowlength))
 			self.status.repaint()
-			autoedit.writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size)
+			autoedit.writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,enable_genicon)
 		self.status.setText("已輸出所有影片")
 
 if __name__ == "__main__": #main function
