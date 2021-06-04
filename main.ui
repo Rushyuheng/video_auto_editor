@@ -56,7 +56,7 @@
         </font>
        </property>
        <property name="text">
-        <string>表演結束時間：</string>
+        <string>正片結束時間：</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -224,7 +224,7 @@
         </font>
        </property>
        <property name="text">
-        <string>表演影片路徑：</string>
+        <string>毛片路徑：</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -245,7 +245,7 @@
         </font>
        </property>
        <property name="text">
-        <string>表演開始時間：</string>
+        <string>正片開始時間：</string>
        </property>
        <property name="textFormat">
         <enum>Qt::PlainText</enum>
