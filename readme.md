@@ -5,7 +5,11 @@
 ###### tags: side_project
 
 ## Window 10 executable
-[google drive link(TW)](https://drive.google.com/file/d/13UKMS-PCkZP-Kch4iRm0CNrDquCjXBQ2/view?usp=sharing)
+
+:::warning
+[google drive link](https://drive.google.com/file/d/1PIRRBE_E7WzztVi8QoTIH54DXGasxNqo/view?usp=sharing)
+.exe only support chinese UI
+:::
 ## Mac/linux
 * python 3.7up
 * setuptool
@@ -62,13 +66,18 @@ python ./main.py
 直接使用不透明片頭動畫，不必勾選「去除動畫黑色背景」
 
 ### Icon設定
-![](https://i.imgur.com/aMvdIDg.png)
+![](https://i.imgur.com/gN7cq52.png)
+
 此區設定範例影片中左下角的圖標
 1. 瀏覽檔案並讀入路徑
-2. 設定ICON位置
-3. 設定ICON尺寸  
+2. 設定是否要自動使用片頭中點影格作為ICON
+3. 設定ICON位置
+4. 設定ICON尺寸  
 :::warning
-若不讀入ICON路徑，預設使用片頭動畫時間點中間的影格作為片頭，會受前點片頭是否有去背影響，建議使用有透明度資訊的PNG作為ICON
+1. 若不讀入ICON檔案也不勾選自動使用則不會有ICON
+2. 若同時選取檔案並勾選自動使用，則會優先使用讀入的ICON檔案
+3. 使用片頭中點影格作為ICON，會受前點片頭是否有去背影響
+4. 建議使用有透明度資訊的PNG作為ICON
 :::
 
 ### 輸出設定
@@ -162,6 +171,9 @@ This block is for scheduling and output mutiple video,user should
 * queue video
 * custimze icon size & position
 * header animate black filter option
+### V2.1
+* end time detection
+* use icon option
 
 ## Reference
 [pymovie](https://zulko.github.io/moviepy/)  
