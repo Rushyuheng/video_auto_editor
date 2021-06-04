@@ -5,9 +5,8 @@
 ###### tags: side_project
 
 ## Window 10 executable
-
+[google drive link](https://drive.google.com/file/d/1PIRRBE_E7WzztVi8QoTIH54DXGasxNqo/view?usp=sharing)  
 :::warning
-[google drive link](https://drive.google.com/file/d/1PIRRBE_E7WzztVi8QoTIH54DXGasxNqo/view?usp=sharing)
 .exe only support chinese UI
 :::
 ## Mac/linux
