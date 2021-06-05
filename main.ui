@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1124</width>
-    <height>859</height>
+    <width>1128</width>
+    <height>840</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -629,7 +629,7 @@
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>80</y>
+         <y>100</y>
          <width>251</width>
          <height>30</height>
         </rect>
@@ -738,6 +738,53 @@
        </property>
        <property name="text">
         <string>清除處理清單</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="quality_combobox">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>60</y>
+         <width>121</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>1080</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>720</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>69</x>
+         <y>60</y>
+         <width>121</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>輸出畫質：</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>

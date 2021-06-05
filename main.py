@@ -24,6 +24,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 		self.generate_icon_checkbox.clicked.connect(self.generate_icon_checkboxChangedAction)
 		self.add_queue.clicked.connect(self.add_queue_onClick)
 		self.clear_table.clicked.connect(self.clear_table_onClick)
+		self.quality_combobox.activated.connect(self.quality_comboboxActivate)
 		self.write_video.clicked.connect(self.write_video_onClick)
 
 		#intialize parameter
@@ -33,6 +34,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 		self.enable_blackfilter = True
 		self.enable_genicon = True
 		self.icon_pos = "左下"
+		self.quality = "1080"
 
 	@pyqtSlot()
 	def choose_show_onClick(self):
@@ -85,6 +87,9 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			self.enable_genicon = True
 		else:
 			self.enable_genicon = False
+	@pyqtSlot()
+	def quality_comboboxActivate(self):
+		self.quality = self.quality_combobox.currentText()
 
 	@pyqtSlot()
 	def add_queue_onClick(self):
@@ -172,9 +177,12 @@ class MainUi(QMainWindow, Ui_MainWindow):
 			else:
 				enable_genicon = True
 
+			quality = int(self.quality)
+
 			self.status.setText("輸出影片中...({0}/{1})".format(index + 1,rowlength))
 			self.status.repaint()
-			autoedit.writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,enable_genicon)
+			print([index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,enable_genicon,quality])
+			autoedit.writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,enable_genicon,quality)
 		self.status.setText("已輸出所有影片")
 
 if __name__ == "__main__": #main function

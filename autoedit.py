@@ -8,14 +8,14 @@ def getvideolength(filename):
     sec = int(video.duration) % 60
     return min,sec
 
-def writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,genicon):
+def writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,genicon,quality):
     # load video source
     fire = VideoFileClip(animate_filename)
     if enable_blackfilter:
         masked_fire = mask_color(fire,color=[0,0,0],thr = 50) #filter black background
     else:
         masked_fire = fire
-    show = VideoFileClip(show_filename).subclip((start_time),(end_time))
+    show = VideoFileClip(show_filename).subclip((start_time),(end_time)).resize((quality / 9 * 16,quality)) # 16:9
 
     # add freeze title
     title_bg = show.to_ImageClip(t=0, with_mask=True, duration= fire.duration) #freeze show background
