@@ -754,12 +754,12 @@
        </property>
        <item>
         <property name="text">
-         <string>1080</string>
+         <string>720</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>720</string>
+         <string>1080</string>
         </property>
        </item>
       </widget>

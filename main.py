@@ -181,7 +181,7 @@ class MainUi(QMainWindow, Ui_MainWindow):
 
 			self.status.setText("輸出影片中...({0}/{1})".format(index + 1,rowlength))
 			self.status.repaint()
-			print([index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,enable_genicon,quality])
+			#print([index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,enable_genicon,quality])
 			autoedit.writevideo(index,show_filename,start_time,end_time,animate_filename,enable_blackfilter,icon_filename,icon_pos,icon_size,enable_genicon,quality)
 		self.status.setText("已輸出所有影片")
 
