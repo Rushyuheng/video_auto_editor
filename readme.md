@@ -5,7 +5,7 @@
 ###### tags: side_project
 
 ## Window 10 executable
-[google drive link](https://drive.google.com/file/d/1PIRRBE_E7WzztVi8QoTIH54DXGasxNqo/view?usp=sharing)  
+[google drive link](https://drive.google.com/file/d/1Ua1tpa4d5DmqHs2CEQhZrq8Lr9l_ESNK/view?usp=sharing)  
 :::warning
 .exe only support chinese UI
 :::
@@ -80,12 +80,14 @@ python ./main.py
 :::
 
 ### 輸出設定
-![](https://i.imgur.com/hyjUhdn.png)
+![](https://i.imgur.com/uF5Nl2e.png)
+
 此區設定排程複數影片及輸出
 * 當設定好前三部分後點擊「新增到處理清單」
 * 右邊表格可以查看待處理影片的所有設定值
 * 若前三部分設定有錯誤可以清除表格後重新新增
 * 表格內可以雙擊編輯，但請保持內容格式正確，否則可能出現錯誤
+* 選擇輸出的畫質
 * 當清單全數增加完畢後選擇「輸出影片」
 * 輸出影片後命令提示字元(黑色框框)可以看到各別影片的輸出進度
 * 文字狀態也會顯使目前處理了幾支影片
@@ -173,7 +175,8 @@ This block is for scheduling and output mutiple video,user should
 ### V2.1
 * end time detection
 * use icon option
-
+### V2.2
+* output quality option
 ## Reference
 [pymovie](https://zulko.github.io/moviepy/)  
 [pyqt5](https://doc.qt.io/qt-5.15/search-results.html?q=qfiledialog)
